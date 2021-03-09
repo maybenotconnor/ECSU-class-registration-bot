@@ -3,4 +3,4 @@
 
 I'm graduating soon so why not release this to others
 
-Also if administration asks me to remove this I will so no guarentees it will stay online
+Also if administration asks me to remove this I will so no guarantee it will stay online
