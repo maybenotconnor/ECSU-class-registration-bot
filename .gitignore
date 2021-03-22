@@ -1,5 +1,7 @@
 *.env
 *.log
+*.cache
 .vscode/
 vscode/
 .vscode
+Registration.txt

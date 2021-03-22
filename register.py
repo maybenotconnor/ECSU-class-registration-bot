@@ -7,6 +7,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from dotenv import load_dotenv
 import os
+import pause
+from datetime import datetime
 
 browser = webdriver.Firefox()
 browser.get('https://ssb-prod.ec.easternct.edu/ssomanager/saml/login?relayState=/c/auth/SSB')
@@ -38,8 +40,8 @@ time.sleep(3)
 browser.get('https://ssb-prod.ec.easternct.edu/PROD/bwskfreg.P_AltPin')
 time.sleep(1)
 try:
-    #SELECT TERM FROM DROPDOWN (NOT IN CODE YET)
-    pass
+    #select term from dropdown - must know value to set
+    browser.execute_script('document.getElementById("term_id").value="202210"')
 except:
     pass
 browser.execute_script('document.getElementsByTagName("input")[2].click()')
@@ -50,6 +52,14 @@ try:
 except:
     pass
 time.sleep(1)
+
+#input registration code
+browser.execute_script('document.getElementById("apin_id").value="999999"')
+
+#submit code - should run at 7:00 - make sure to set date
+pause.until(datetime(2021,3,29,7,0,0,3))
+browser.execute_script('document.getElementsByTagName("input")[3].click()')
+
 
 #input class CRNs below
 browser.execute_script('document.getElementById("crn_id1").value="00000"')
